@@ -2,8 +2,8 @@
 layout: runbook
 title: '#4471 · two date problems'
 owner: support desk
-status: under review
-reviewed: 2026-10-28
+status: closed
+reviewed: 2026-11-17
 signature: grotos
 ---
 
@@ -29,6 +29,10 @@ Ticket #4471 combines two causes, so keep them in separate issues rather than tr
 
 - **Parser:** make date parsing respect each tenant's day-first locale. The affected reports arrive through app, email, and forms.
 - **Booking-v3 hint:** make the displayed date format match the tenant's locale. These reports come from the booking-v3 form in day-first locales.
+
+## Desk update · 5 October
+
+Engineering closed #4471 on 5 October. The parser issue was fixed by `fix(dates): parse dd/mm for eu locales`. The booking-v3 form was retired, so its hint issue will not be fixed. These outcomes do not change the historical report counts above.
 
 ## Counting and evidence
 
