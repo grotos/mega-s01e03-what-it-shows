@@ -1,0 +1,39 @@
+---
+layout: runbook
+title: '#4471 · two date problems'
+owner: support desk
+status: under review
+reviewed: 2026-10-28
+signature: grotos
+---
+
+<script>
+  import ProblemSplit from '#lib/kb/ProblemSplit.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const parserIssue = {
+    number: 1,
+    url: 'https://github.com/grotos/mega-s01e03-what-it-shows/issues/1',
+  };
+  const hintIssue = {
+    number: 2,
+    url: 'https://github.com/grotos/mega-s01e03-what-it-shows/issues/2',
+  };
+</script>
+
+Ticket #4471 combines two causes, so keep them in separate issues rather than treating every date report as the same bug. See the [original incident page](/kb/incidents/4471) for the desk's current summary.
+
+<ProblemSplit {parserIssue} {hintIssue} />
+
+## Separate fixes
+
+- **Parser:** make date parsing respect each tenant's day-first locale. The affected reports arrive through app, email, and forms.
+- **Booking-v3 hint:** make the displayed date format match the tenant's locale. These reports come from the booking-v3 form in day-first locales.
+
+## Counting and evidence
+
+The export contains overlapping rows. Count each report ID once, then keep reports whose `mergedInto` value is `4471`. The intake tag is only a guess; classify by the tenant's locale, form version, and report channel instead.
+
+The desk notes call out R-41202, R-41209, R-41236, R-41344, and R-41620 as one-day moves. They stay with the cause assigned from tenant and channel; the symptom does not make a third problem.
+
+<RenderStamp {signature} />
